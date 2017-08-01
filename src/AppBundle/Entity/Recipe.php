@@ -50,6 +50,34 @@ class Recipe
      * @ORM\Column(type="text", nullable=false)
      */
     protected $instructions;
+    /**
+     * @ORM\ManyToMany(targetEntity="Ingredient")
+     * @ORM\JoinTable(
+     *     name="recipe_ingredients",
+     *     joinColumns={
+     *          @ORM\JoinColumn(name="recipe_id", referencedColumnName="id")
+     *     },
+     *     inverseJoinColumns={
+     *          @ORM\JoinColumn(name="ingredient_id", referencedColumnName="id")
+     *     })
+     */
+    private $ingredients;
+
+    /**
+     * @return mixed
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
+
+    /**
+     * @param mixed $ingredients
+     */
+    public function addIngredients($ingredients)
+    {
+        $this->ingredients->add($ingredients);
+    }
 
 
     public function getCreatedAt() : DateTime
