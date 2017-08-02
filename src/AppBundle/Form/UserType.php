@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 class UserType extends AbstractType
 {
     /**
@@ -13,7 +15,16 @@ class UserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('bio')->add('created_at');
+        $builder->add('bio')
+            ->add(
+            'roles', ChoiceType::class, [
+                'choices' => ['ROLE_ADMIN' => 'ROLE_ADMIN', 'ROLE_USER' => 'ROLE_USER'],
+                'expanded' => true,
+                'multiple' => true,
+            ]
+        );
+
+
     }
     
     /**
