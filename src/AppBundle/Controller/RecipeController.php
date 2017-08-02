@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * Recipe controller.
@@ -77,6 +78,8 @@ class RecipeController extends Controller
 
     /**
      * Displays a form to edit an existing recipe entity.
+     *
+     * @Security("has_role('ROLE_ADMIN') or is_granted('edit', recipe)")
      *
      * @Route("/{id}/edit", name="recipe_edit")
      * @Method({"GET", "POST"})

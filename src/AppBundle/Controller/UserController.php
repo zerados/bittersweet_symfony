@@ -18,7 +18,8 @@ class UserController extends Controller
 {
     /**
      * Lists all user entities.
-     * Security("has_role('ROLE_ADMIN')")
+     *
+     * @Security("has_role('ROLE_ADMIN')")
      *
      * @Route("/", name="user_index")
      * @Method("GET")
@@ -36,6 +37,8 @@ class UserController extends Controller
 
     /**
      * Creates a new user entity.
+     *
+     * @Security("has_role('ROLE_ADMIN')")
      *
      * @Route("/new", name="user_new")
      * @Method({"GET", "POST"})
@@ -63,6 +66,8 @@ class UserController extends Controller
     /**
      * Finds and displays a user entity.
      *
+     * @Security("has_role('ROLE_ADMIN') or is_granted('view', user)")
+     *
      * @Route("/{id}", name="user_show")
      * @Method("GET")
      */
@@ -78,6 +83,8 @@ class UserController extends Controller
 
     /**
      * Displays a form to edit an existing user entity.
+     *
+     * @Security("has_role('ROLE_ADMIN') or is_granted('edit', user)")
      *
      * @Route("/{id}/edit", name="user_edit")
      * @Method({"GET", "POST"})

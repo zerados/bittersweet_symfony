@@ -1,29 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>User</h1>
+    <h1>{{ user.username }}</h1>
 
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>Id: </th>
                 <td>{{ user.id }}</td>
             </tr>
             <tr>
-                <th>Bio</th>
+                <th>Email: </th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Bio: </th>
                 <td>{{ user.bio }}</td>
             </tr>
             <tr>
-                <th>Created_at</th>
+                <th>Created: </th>
                 <td>{% if user.createdat %}{{ user.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
-        </li>
         <li>
             {% if app.user == user or is_granted('ROLE_ADMIN') %}
                 <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
