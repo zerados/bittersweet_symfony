@@ -12,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Ingredient
 {
+    public function __toString() {
+        return $this->name;
+    }
     /**
      * @var int
      *
@@ -26,7 +29,7 @@ class Ingredient
      *
      * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
-    private $name;
+    public $name;
 
 
     /**

@@ -17,12 +17,23 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Recipe
 {
+    public function __toString() {
+        return "texst";
+    }
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
     /**
      *
      * @Gedmo\Timestampable(on="create")
@@ -40,16 +51,16 @@ class Recipe
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $user;
+    public $user;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=false)
      */
-    protected $title;
+    public $title;
     /**
      * @ORM\Column(type="text", nullable=false)
      */
-    protected $instructions;
+    public $instructions;
     /**
      * @ORM\ManyToMany(targetEntity="Ingredient")
      * @ORM\JoinTable(
@@ -61,15 +72,7 @@ class Recipe
      *          @ORM\JoinColumn(name="ingredient_id", referencedColumnName="id")
      *     })
      */
-    private $ingredients;
-
-    /**
-     * @return mixed
-     */
-    public function getIngredients()
-    {
-        return $this->ingredients;
-    }
+    public $ingredients;
 
     /**
      * @param mixed $ingredients
@@ -80,18 +83,17 @@ class Recipe
     }
 
 
-    public function getCreatedAt() : DateTime
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
-    public function getUpdatedAt() : DateTime
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
 
     public function __construct()
     {
-        parent::__construct();
         // your own logic
     }
 }

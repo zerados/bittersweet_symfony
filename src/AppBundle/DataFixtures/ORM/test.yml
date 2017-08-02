@@ -1,0 +1,34 @@
+AppBundle\Entity\User:
+    Admin:
+        username: admin
+        email: <companyEmail()>
+        enabled: <boolean(100)>
+        plainPassword: passwordJJ
+        roles: [ROLE_ADMIN]
+        bio: <sentences(6, true)>
+    User_enabled_{1..10}:
+        username (unique): <firstName()>
+        email (unique): <companyEmail()>
+        enabled: <boolean(100)>
+        plainPassword: dummyPass
+        roles: [ROLE_User]
+        bio: <sentences(6, true)>
+    User_disabled_{10..20}:
+        username (unique): <firstName()>
+        email (unique): <companyEmail()>
+        enabled: <boolean(0)>
+        plainPassword: dummyPass
+        roles: [ROLE_User]
+        confirmation_token (unique): <uuid()>
+        bio: <sentences(6, true)>
+
+AppBundle\Entity\Recipe:
+    recipe_{1..100}:
+        title: <sentence(6)>
+        user:  '@User_enabled_*'
+        instructions: <sentences(10, true)>
+        ingredients: ['@Ingredient_*']
+
+AppBundle\Entity\Ingredient:
+    Ingredient_{1..200}:
+        name (unique): <words(2, true)>

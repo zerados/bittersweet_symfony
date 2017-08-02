@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Recipes list</h1>
+    {% for recipe in recipes %}
+        <div class="row">
+            <div class="col-md-12">
+                {# TODO: style this #}
+                <h4><a href="/recipe/{{ recipe.id }}">{{ recipe.title }}</a></h4>
+                <a href="/user/{{ recipe.user.id }}">{{ recipe.user }}</a>
+                <p>Created: {% if recipe.createdAt %}{{ recipe.createdAt|date('d-m-Y') }}{% endif %}.
+                    Last updated {% if recipe.updatedAt %}{{ recipe.updatedAt|date('d-m-Y') }}{% endif %}</p>
+
+                <p>{{ recipe.instructions|truncate(400, true)}}</p>
+                {% if app.user == recipe.user or is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('recipe_edit', { 'id': recipe.id }) }}">edit</a>
+                {% endif %}
+                <hr>
+            </div>
+        </div>
+    {% endfor %}
+
+
+    <ul>
+        <li>
+            <a href="{{ path('recipe_new') }}">Create a new recipe</a>
+        </li>
+    </ul>
+{% endblock %}

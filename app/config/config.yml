@@ -37,6 +37,15 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+services:
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
 
 # Doctrine Configuration
 doctrine:

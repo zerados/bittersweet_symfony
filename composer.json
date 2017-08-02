@@ -1,4 +1,5 @@
 {
+    "minimum-stability" : "dev",
     "name": "zera/intern_test",
     "license": "proprietary",
     "type": "project",
@@ -21,6 +22,7 @@
     },
     "require": {
         "php": ">=5.5.9",
+        "doctrine/data-fixtures": "^1.2",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-migrations-bundle": "^1.0",
         "doctrine/orm": "^2.5",
@@ -33,11 +35,12 @@
         "symfony/polyfill-apcu": "^1.0",
         "symfony/swiftmailer-bundle": "^2.3.10",
         "symfony/symfony": "3.3.*",
+        "trappar/alice-generator-bundle": "dev-master",
+        "twig/extensions": "^1.5@dev",
         "twig/twig": "^1.0||^2.0"
     },
     "require-dev": {
-        "doctrine/data-fixtures": "^1.2",
-        "hautelook/alice-bundle": "^2.0@beta",
+        "hautelook/alice-bundle": "^2.0@dev",
         "nelmio/alice": "^3.0@beta",
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0",

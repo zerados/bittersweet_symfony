@@ -21,10 +21,18 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $bio;
+    public $bio;
     /**
      *
      * @Gedmo\Timestampable(on="create")
@@ -32,7 +40,7 @@ class User extends BaseUser
      */
     private $created_at;
 
-    public function getCreatedAt() : DateTime
+    public function getCreatedAt()
     {
         return $this->created_at;
     }
