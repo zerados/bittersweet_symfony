@@ -1,5 +1,4 @@
 <?php
-// src/AppBundle/Security/PostVoter.php
 namespace AppBundle\Security;
 
 use AppBundle\Entity\User;
@@ -19,7 +18,7 @@ class UserVoter extends Voter
             return false;
         }
 
-        // only vote on Post objects inside this voter
+        // only vote on User objects inside this voter
         if (!$subject instanceof User) {
             return false;
         }
@@ -36,8 +35,8 @@ class UserVoter extends Voter
             return false;
         }
 
-        // you know $subject is a Post object, thanks to supports
-        /** @var Recipe $recipe */
+        // you know $subject is a User object, thanks to supports
+        /** @var User $user */
 
         switch ($attribute) {
             case self::VIEW:
@@ -54,7 +53,7 @@ class UserVoter extends Voter
         return $subject === $user;
     }
 
-    private function canEdit(Recipe $subject, User $user)
+    private function canEdit(User $subject, User $user)
     {
         return $user === $subject;
     }

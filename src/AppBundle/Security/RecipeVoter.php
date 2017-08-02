@@ -1,5 +1,4 @@
 <?php
-// src/AppBundle/Security/PostVoter.php
 namespace AppBundle\Security;
 
 use AppBundle\Entity\Recipe;
@@ -20,7 +19,7 @@ class RecipeVoter extends Voter
             return false;
         }
 
-        // only vote on Post objects inside this voter
+        // only vote on Recipe objects inside this voter
         if (!$subject instanceof Recipe) {
             return false;
         }
@@ -37,7 +36,7 @@ class RecipeVoter extends Voter
             return false;
         }
 
-        // you know $subject is a Post object, thanks to supports
+        // you know $subject is a Recipe object, thanks to supports
         /** @var Recipe $recipe */
         $recipe = $subject;
 
