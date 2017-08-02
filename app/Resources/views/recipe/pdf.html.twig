@@ -1,12 +1,11 @@
-{% extends 'base.html.twig' %}
-
 {% block body %}
     <div class="row">
         <div class="col-md-12">
             {# TODO: style this #}
             <h1>{{ recipe.title }}</h1>
-            <a href="/user/{{ recipe.user.id }}">{{ recipe.user }}</a>
+            Created by: {{ recipe.user }}
             <p>Created: {% if recipe.createdAt %}{{ recipe.createdAt|date('d-m-Y') }}{% endif %}.
+                <br>
                 Last updated {% if recipe.updatedAt %}{{ recipe.updatedAt|date('d-m-Y') }}{% endif %}</p>
             <hr>
             <h4>Ingredients</h4>
@@ -19,14 +18,6 @@
             </ul>
             <h4>Instructions</h4>
             <p>{{ recipe.instructions|truncate(400, true)}}</p>
-            <a href="{{ path('recipe_generate', { 'id': recipe.id }) }}">Generate pdf</a>
-            <hr>
-            {% if app.user == recipe.user or is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('recipe_edit', { 'id': recipe.id }) }}">edit</a>
-                {{ form_start(delete_form) }}
-                <input class="button" type="submit" value="Delete">
-                {{ form_end(delete_form) }}
-            {% endif %}
 
         </div>
     </div>

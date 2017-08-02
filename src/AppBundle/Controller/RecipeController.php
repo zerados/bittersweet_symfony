@@ -5,7 +5,9 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Recipe;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Recipe controller.
@@ -132,5 +134,26 @@ class RecipeController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+    /**
+     * generates pdf
+     *
+     * @Route("/{id}/generatePDF", name="recipe_generate")
+     * @Method("GET")
+     */
+    public function generatePDF(Recipe $recipe){
+
+        $html = $this->renderView('recipe/pdf.html.twig', array(
+            'recipe' => $recipe,
+        ));
+        $pdfGenerator = $this->get('spraed.pdf.generator');
+
+        return new Response($pdfGenerator->generatePDF($html),
+            200,
+            array(
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'attachment; filename="Recipe.pdf"'
+            )
+        );
     }
 }

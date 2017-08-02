@@ -25,7 +25,9 @@
             <a href="{{ path('user_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('user_edit', { 'id': user.id }) }}">Edit</a>
+            {% if app.user == user or is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
+            {% endif %}
         </li>
         <li>
             {{ form_start(delete_form) }}

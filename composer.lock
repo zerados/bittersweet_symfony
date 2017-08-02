@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd2a422e8c12e1fdc4470122c89d7991",
+    "content-hash": "a05df94e9e0ac99db466ce34ce53348b",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2078,6 +2078,55 @@
             "time": "2017-03-31T14:50:32+00:00"
         },
         {
+            "name": "spraed/pdf-generator-bundle",
+            "version": "dev-master",
+            "target-dir": "Spraed/PDFGeneratorBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stedekay/SpraedPDFGeneratorBundle.git",
+                "reference": "a20d95fe5a2decc6b9adf39cec8e4b00b7d61111"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stedekay/SpraedPDFGeneratorBundle/zipball/a20d95fe5a2decc6b9adf39cec8e4b00b7d61111",
+                "reference": "a20d95fe5a2decc6b9adf39cec8e4b00b7d61111",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "~2.3|~3.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Spraed\\PDFGeneratorBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/stedekay/SpraedPDFGeneratorBundle/contributors"
+                },
+                {
+                    "name": "Spraed Team",
+                    "homepage": "http://www.spraed-it.de"
+                }
+            ],
+            "description": "This bundle creates (multiple) PDFs in Symfony2 by converting Twig/HTML templates.",
+            "homepage": "https://github.com/stedekay/SpraedPDFGeneratorBundle",
+            "keywords": [
+                "bundle",
+                "generator",
+                "pdf",
+                "spraed"
+            ],
+            "time": "2016-03-22 13:59:57"
+        },
+        {
             "name": "stof/doctrine-extensions-bundle",
             "version": "v1.2.2",
             "source": {
@@ -3566,6 +3615,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "spraed/pdf-generator-bundle": 20,
         "trappar/alice-generator-bundle": 20,
         "twig/extensions": 20,
         "hautelook/alice-bundle": 20,
