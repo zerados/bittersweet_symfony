@@ -48,7 +48,7 @@ class Recipe
     private $updatedAt;
     /**
      * Many Users have One Address.
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="recipes")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     public $user;

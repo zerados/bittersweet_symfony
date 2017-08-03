@@ -44,7 +44,7 @@ class User extends BaseUser
 
     /**
      * One User has Many recipes.
-     * @ORM\OneToMany(targetEntity="Recipe", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Recipe", mappedBy="user" )
      *
      */
     private $recipes;

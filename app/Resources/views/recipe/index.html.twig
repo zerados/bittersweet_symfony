@@ -2,7 +2,10 @@
 
 {% block body %}
     <h1>Recipes list</h1>
-    <a href="{{ path('recipe_new') }}">Create a new recipe</a>
+    {% if app.user %}
+        <a href="{{ path('recipe_new') }}">Create a new recipe</a>
+    {% endif %}
+
     <hr>
     {% for recipe in recipes %}
         <div class="row">
