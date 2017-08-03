@@ -10,8 +10,10 @@
                 <td>{{ user.id }}</td>
             </tr>
             <tr>
+                {% if is_granted('ROLE_ADMIN') %}
                 <th>Email: </th>
                 <td>{{ user.email }}</td>
+                {% endif %}
             </tr>
             <tr>
                 <th>Bio: </th>
