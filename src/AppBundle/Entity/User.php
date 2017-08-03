@@ -38,8 +38,24 @@ class User extends BaseUser
      *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
+     * 
      */
     private $created_at;
+
+    /**
+     * One User has Many recipes.
+     * @ORM\OneToMany(targetEntity="Recipe", mappedBy="user")
+     *
+     */
+    private $recipes;
+
+    /**
+     * @return mixed
+     */
+    public function getrecipes()
+    {
+        return $this->recipes;
+    }
 
     public function getCreatedAt()
     {

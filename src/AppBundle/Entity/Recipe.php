@@ -49,7 +49,7 @@ class Recipe
     /**
      * Many Users have One Address.
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     public $user;
 
@@ -66,7 +66,7 @@ class Recipe
      * @ORM\JoinTable(
      *     name="recipe_ingredients",
      *     joinColumns={
-     *          @ORM\JoinColumn(name="recipe_id", referencedColumnName="id")
+     *          @ORM\JoinColumn(name="recipe_id", referencedColumnName="id", onDelete="CASCADE"),
      *     },
      *     inverseJoinColumns={
      *          @ORM\JoinColumn(name="ingredient_id", referencedColumnName="id")

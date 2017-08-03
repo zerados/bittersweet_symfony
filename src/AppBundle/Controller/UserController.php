@@ -66,7 +66,7 @@ class UserController extends Controller
     /**
      * Finds and displays a user entity.
      *
-     * @Security("has_role('ROLE_ADMIN') or is_granted('view', user)")
+     * 
      *
      * @Route("/{id}", name="user_show")
      * @Method("GET")

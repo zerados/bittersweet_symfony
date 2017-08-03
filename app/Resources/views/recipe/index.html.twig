@@ -2,6 +2,8 @@
 
 {% block body %}
     <h1>Recipes list</h1>
+    <a href="{{ path('recipe_new') }}">Create a new recipe</a>
+    <hr>
     {% for recipe in recipes %}
         <div class="row">
             <div class="col-md-12">
@@ -21,9 +23,4 @@
     {% endfor %}
 
 
-    <ul>
-        <li>
-            <a href="{{ path('recipe_new') }}">Create a new recipe</a>
-        </li>
-    </ul>
 {% endblock %}
